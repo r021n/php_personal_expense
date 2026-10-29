@@ -1,0 +1,28 @@
+# Local credentials and environment overrides
+.env
+.env.*
+!.env.example
+config.local.php
+
+# Runtime data (SQLite database)
+data/
+*.sqlite
+*.sqlite3
+*.db
+
+# User-uploaded receipts
+uploads/
+
+# Generated / reproducible output
+vendor/
+node_modules/
+*.log
+cache/
+tmp/
+temp/
+
+# Editor and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
