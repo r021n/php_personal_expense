@@ -40,7 +40,7 @@ function is_logged_in(): bool
         && $_SESSION['user_id'] > 0;
 }
 
-function required_login(): void
+function require_login(): void
 {
     if (!is_logged_in()) {
         redirect('login.php');

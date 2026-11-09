@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 require_once __DIR__ . "/config.php";
 require_once __DIR__ . "/src/helpers.php";
+require_once __DIR__ . "/src/auth.php";
 
-$title = 'Fase 1 - Setup Berhasil';
+require_login();
+
+$title = 'Dashboard';
+$username = (string) $_SESSION['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -35,16 +40,16 @@ $title = 'Fase 1 - Setup Berhasil';
 
 <body>
     <h1><?= e(APP_NAME) ?></h1>
-    <p class="ok">Fase 1 selesai. Konfigurasi dan helper berhasil dimuat.</p>
+    <p class="ok">Login berhasil. Selamat datang, <?= e($username) ?></p>
     <ul>
         <li>Timezone: <?= e(date_default_timezone_get()) ?></li>
         <li>Database: <?= e(DB_PATH) ?></li>
         <li>Upload: <?= e(UPLOAD_PATH) ?></li>
         <li>Fileinfo: <?= extension_loaded('fileinfo') ? 'aktif' : 'tidak aktif' ?></li>
     </ul>
-    <form method="post" action="#">
+    <form method="post" action="logout.php">
         <?= csrf_field() ?>
-        <button type="submit">Uji CSRF field</button>
+        <button type="submit">Logout</button>
     </form>
 </body>
 
