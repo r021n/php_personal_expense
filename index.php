@@ -41,6 +41,7 @@ $username = (string) $_SESSION['username'];
 <body>
     <h1><?= e(APP_NAME) ?></h1>
     <p class="ok">Login berhasil. Selamat datang, <?= e($username) ?></p>
+    <p><a href="expenses.php">Kelola pengeluaran</a></p>
     <ul>
         <li>Timezone: <?= e(date_default_timezone_get()) ?></li>
         <li>Database: <?= e(DB_PATH) ?></li>
